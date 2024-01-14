@@ -9,5 +9,4 @@ userRouter.post("/signup", signUp)
 
 userRouter.post("/signin", signIn)
 
-
 module.exports = userRouter;

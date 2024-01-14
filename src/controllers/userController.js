@@ -38,11 +38,32 @@ const signUp = async (req, res) => {
 
 
 const signIn = async (req, res) => {
+    const { email, password } = req.body;
 
+    try {
+        // Check if the user exists
+        const existingUser = await userModel.findOne({ email: email });
+        if (!existingUser) {
+            return res.status(404).json({ message: "User not found" });
+        }
 
+        // Verify the password
+        const isPasswordValid = await bcrypt.compare(password, existingUser.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: "Invalid password" });
+        }
 
+        // Generate a JWT token
+        const token = jwt.sign({ email: existingUser.email, id: existingUser._id }, SECRET_KEY);
 
+        // Return user data and token
+        res.status(200).json({ user: existingUser, token: token });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Something went wrong" });
+    }
 };
+
 
 
 module.exports = { signUp, signIn };
