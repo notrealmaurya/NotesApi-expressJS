@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 const { use } = require('../routes/userRoutes');
 
-const SECRET_KEY = "NOTESAPI";
+const SECRET_KEY = process.env.SECRET_KEY;
 
 const auth = (req, res, next) => {
 
@@ -18,7 +18,7 @@ const auth = (req, res, next) => {
 
         }
         else {
-            res.status(401).json({ message: "You are not logged in" })
+            return res.status(401).json({ message: "You are not logged in" })
         }
 
         next();
