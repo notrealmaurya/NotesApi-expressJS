@@ -55,11 +55,6 @@ const deleteNote = async (req, res) => {
 
     try {
         const deletedNote = await noteModel.findByIdAndRemove(noteId);
-        
-        if (!deletedNote) {
-            return res.status(404).json({ message: "Note not found" });
-        }
-
         res.status(202).json(note);
     } catch (error) {
         console.error(error);
