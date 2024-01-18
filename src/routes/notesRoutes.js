@@ -6,7 +6,6 @@ const { getNotes, createNote, deleteNote, updateNote } = require("../controllers
 const auth = require("../middlewares/auth")
 const notesRouter = express.Router();
 
-
 notesRouter.get("/", auth, getNotes);
 
 notesRouter.post("/", auth, createNote);

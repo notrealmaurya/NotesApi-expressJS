@@ -27,7 +27,7 @@ const createNote = async (req, res) => {
 
 
 const updateNote = async (req, res) => {
-    const noteId = req.params.noteId;
+    const noteId = req.params.id;
     const { title, description } = req.body;
 
     try {
@@ -48,22 +48,25 @@ const updateNote = async (req, res) => {
     }
 };
 
+
+
 const deleteNote = async (req, res) => {
     const noteId = req.params.noteId;
 
     try {
         const deletedNote = await noteModel.findByIdAndRemove(noteId);
-
+        
         if (!deletedNote) {
             return res.status(404).json({ message: "Note not found" });
         }
 
-        res.status(200).json({ message: "Note deleted successfully" });
+        res.status(202).json(note);
     } catch (error) {
-        console.log(error);
+        console.error(error);
         res.status(500).json({ message: "Something went wrong" });
     }
 };
+
 
 
 const getNotes = async (req, res) => {
