@@ -27,7 +27,7 @@ const createNote = async (req, res) => {
 
 
 const updateNote = async (req, res) => {
-    const noteId = req.params.id;
+    const noteId = req.params.noteId;
     const { title, description } = req.body;
 
     try {
