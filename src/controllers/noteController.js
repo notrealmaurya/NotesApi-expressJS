@@ -55,7 +55,7 @@ const deleteNote = async (req, res) => {
 
     try {
         const deletedNote = await noteModel.findByIdAndRemove(noteId);
-        res.status(202).json(note);
+        res.status(202).json(deletedNote);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Something went wrong" });
