@@ -3,7 +3,7 @@
  <div>
     <img src="https://ajeetchaulagain.com/static/7cb4af597964b0911fe71cb2f8148d64/8d565/express-js.webp" width="40" height="40">
     <img src="https://www.desuvit.com/wp-content/uploads/2021/03/mongodb-icon.png" width="40" height="40">
-    <img src="https://assets.materialup.com/uploads/b6c33467-82c3-442c-a2dc-c089bbff9fa1/preview.png" width="40" height="40">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOW34PFNB2wJ1Hf5AP88UYB4d-LDcOsC7i4g&usqp=CAU" width="40" height="40">
 </div>
 
 
