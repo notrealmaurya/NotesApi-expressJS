@@ -112,9 +112,5 @@ module.exports = mongoose.model('Note', NoteSchema);
 ```
 
 ## Contributing
+>Contributions to this project are welcome! If you encounter any bugs, have suggestions for improvements, or want to contribute new features, please open an issue or submit a pull request.
 
-Contributions to this project are welcome! If you encounter any bugs, have suggestions for improvements, or want to contribute new features, please open an issue or submit a pull request.
-
-```
-
-This README file provides comprehensive information about the project, including installation instructions, usage guidelines, technology stack, and contribution guidelines. Feel free to modify it further to suit your project's specific needs. If you have any questions or need further assistance, feel free to ask!
