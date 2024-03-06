@@ -1,5 +1,11 @@
 # Notes API with User Authentication
 >This repository contains an Express.js API for managing notes with user authentication. It provides endpoints for user sign-up, sign-in, and CRUD operations on notes.
+ <div>
+    <img src="https://ajeetchaulagain.com/static/7cb4af597964b0911fe71cb2f8148d64/8d565/express-js.webp" width="40" height="40">
+    <img src="https://www.desuvit.com/wp-content/uploads/2021/03/mongodb-icon.png" width="40" height="40">
+    <img src="https://assets.materialup.com/uploads/b6c33467-82c3-442c-a2dc-c089bbff9fa1/preview.png" width="40" height="40">
+</div>
+
 
 ## Features
 
