@@ -31,17 +31,15 @@ const updateNote = async (req, res) => {
     const { title, description } = req.body;
 
     try {
-        const note = await noteModel.findOne({ _id: noteId, userId: req.userId });
-
-        if (!note) {
-            return res.status(404).json({ message: "Note not found or unauthorized" });
-        }
-
-        const updatedNote = await noteModel.findByIdAndUpdate(
-            noteId,
+        const updatedNote = await noteModel.findOneAndUpdate(
+            { _id: noteId, userId: req.userId },
             { title: title, description: description },
             { new: true, runValidators: true }
         );
+
+        if (!updatedNote) {
+            return res.status(404).json({ message: "Note not found or unauthorized" });
+        }
 
         res.status(200).json(updatedNote);
     } catch (error) {
