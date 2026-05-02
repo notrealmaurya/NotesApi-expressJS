@@ -31,15 +31,17 @@ const updateNote = async (req, res) => {
     const { title, description } = req.body;
 
     try {
+        const note = await noteModel.findOne({ _id: noteId, userId: req.userId });
+
+        if (!note) {
+            return res.status(404).json({ message: "Note not found or unauthorized" });
+        }
+
         const updatedNote = await noteModel.findByIdAndUpdate(
             noteId,
-            { title: title, description: description, userId: req.userId },
+            { title: title, description: description },
             { new: true, runValidators: true }
         );
-
-        if (!updatedNote) {
-            return res.status(404).json({ message: "Note not found" });
-        }
 
         res.status(200).json(updatedNote);
     } catch (error) {
@@ -55,10 +57,13 @@ const deleteNote = async (req, res) => {
     const noteId = req.params.noteId;
 
     try {
-        const deletedNote = await noteModel.findOneAndDelete({ _id: noteId });
+        const deletedNote = await noteModel.findOneAndDelete({ 
+            _id: noteId, 
+            userId: req.userId 
+        });
 
         if (!deletedNote) {
-            return res.status(404).json({ message: "Note not found" });
+            return res.status(404).json({ message: "Note not found or unauthorized" });
         }
 
         res.status(202).json(deletedNote);
